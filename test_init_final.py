@@ -1121,7 +1121,7 @@ while True:
 
 			################ 음성파일 생성 후 재생 ################ 		
 				
-			if message.content.startswith('!v') or message.content.startswith('!ㅍ') or message.content.startswith('!V'):
+			if message.content.startswith('/v') or message.content.startswith('/ㅍ') or message.content.startswith('/V'):
 				tmp_sayMessage = message.content
 				sayMessage = tmp_sayMessage[3:]
 				await MakeSound(message.author.display_name +'님이.' + sayMessage, './sound/say')
