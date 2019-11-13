@@ -1582,7 +1582,7 @@ while True:
 
 			################ 리젠시간 출력 ################
 			
-			if message.content == '/리젠':
+			if message.content == '!리젠':
 				embed = discord.Embed(
 						title='----- 리스폰 보스 -----',
 						description= ' ')
@@ -1595,9 +1595,9 @@ while True:
 				embed.add_field(name='6시간 53분 젠', value=' 피닉스 (멍 있음) ', inline=False)
 				embed.add_field(name='7시간 젠', value=' 데스나이트 (멍 있음)', inline=False)
 				embed.add_field(name='8시간 젠', value=' 리칸트 (멍있음) ', inline=False)
-                                                embed.add_field(name='10시간 젠', value=' 커츠 (멍 있음) ', inline=False)
-                                                embed.add_field(name='14:00!14:30 , 20:00~20:30', value=' 바포메트 ', inline=False)
-                                                embed.add_field(name='매 홀수 정시각', value=' 네크로맨서 ', inline=False)
+				embed.add_field(name='10시간 젠', value=' 커츠 (멍 있음) ', inline=False)
+				embed.add_field(name='14:00!14:30 , 20:00~20:30', value=' 바포메트 ', inline=False)
+				embed.add_field(name='매 홀수 정시각', value=' 네크로맨서 ', inline=False)
 				await client.get_channel(channel).send(embed=embed, tts=False)
 
 			################ 명존쎄 ################ 
