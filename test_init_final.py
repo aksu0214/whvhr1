@@ -783,7 +783,7 @@ while True:
 					message = await msg.channel.fetch_message(msg.id)
 					##################################
 
-					if message.content.startswith('!사다리'):
+					if message.content.startswith('/사다리'):
 						ladder = []
 						ladder = message.content[5:].split(" ")
 						num_cong = int(ladder[0])
@@ -799,7 +799,7 @@ while True:
 			
 			################ 텍스트 정보확인 ################ 
 
-			if message.content == '!채널확인' :
+			if message.content == '/채널확인' :
 				ch_information = ''
 				for i in range(len(channel_name)):
 					ch_information += '[' + channel_id[i] + '] ' + channel_name[i] + '\n'
@@ -828,7 +828,7 @@ while True:
 
 			################ 텍스트채널이동 ################ 
 
-			if message.content.startswith('!채널이동'):
+			if message.content.startswith('/채널이동'):
 				tmp_sayMessage1 = message.content
 				
 				for i in range(len(channel_name)):
@@ -858,14 +858,14 @@ while True:
 
 			for i in range(bossNum):
 				################ 보스 컷처리 ################ 
-				if message.content.startswith(bossData[i][0] +'컷'):
+				if message.content.startswith(bossData[i][0] +' 컷'):
 					if hello.find('  ') != -1 :
 						bossData[i][6] = hello[hello.find('  ')+2:]
 						hello = hello[:hello.find('  ')]
 					else:
 						bossData[i][6] = ''
 						
-					tmp_msg = bossData[i][0] +'컷'
+					tmp_msg = bossData[i][0] +' 컷'
 					if len(hello) > len(tmp_msg) + 3 :
 						if hello.find(':') != -1 :
 							chkpos = hello.find(':')
@@ -915,14 +915,14 @@ while True:
 
 				################ 보스 멍 처리 ################ 
 
-				if message.content.startswith(bossData[i][0] +'멍'):
+				if message.content.startswith(bossData[i][0] +' 멍'):
 					if hello.find('  ') != -1 :
 						bossData[i][6] = hello[hello.find('  ')+2:]
 						hello = hello[:hello.find('  ')]
 					else:
 						bossData[i][6] = ''
 						
-					tmp_msg = bossData[i][0] +'멍'
+					tmp_msg = bossData[i][0] +' 멍'
 					tmp_now = datetime.datetime.now() + datetime.timedelta(hours = int(basicSetting[0]))
 
 					if len(hello) > len(tmp_msg) + 3 :
@@ -991,14 +991,14 @@ while True:
 
 					
 				################ 예상 보스 타임 입력 ################ 
-				if message.content.startswith(bossData[i][0] +'예상'):
+				if message.content.startswith(bossData[i][0] +' 예상'):
 					if hello.find('  ') != -1 :
 						bossData[i][6] = hello[hello.find('  ')+2:]
 						hello = hello[:hello.find('  ')]
 					else:
 						bossData[i][6] = ''
 						
-					tmp_msg = bossData[i][0] +'예상'
+					tmp_msg = bossData[i][0] +' 예상'
 					if len(hello) > len(tmp_msg) + 3 :
 						if hello.find(':') != -1 :
 							chkpos = hello.find(':')
@@ -1037,7 +1037,7 @@ while True:
 						
 				################ 보스타임 삭제 ################
 					
-				if message.content == bossData[i][0] +'삭제':
+				if message.content == bossData[i][0] +' 삭제':
 					bossTime[i] = datetime.datetime.now()+datetime.timedelta(days=365, hours = int(basicSetting[0]))
 					tmp_bossTime[i] =  datetime.datetime.now()+datetime.timedelta(days=365, hours = int(basicSetting[0]))
 					bossTimeString[i] = '99:99:99'
@@ -1054,16 +1054,16 @@ while True:
 			
 			################ ?????????????? ################ 
 
-			if message.content == '!오빠':
+			if message.content == '/오빠':
 				await PlaySound(voice_client1, './sound/오빠.mp3')
-			if message.content == '!언니':
+			if message.content == '/언니':
 				await PlaySound(voice_client1, './sound/언니.mp3')
-			if message.content == '!형':
+			if message.content == '/형':
 				await PlaySound(voice_client1, './sound/형.mp3')
 
 			################ 분배 결과 출력 ################ 
 
-			if message.content.startswith('!분배'):
+			if message.content.startswith('/분배'):
 				separate_money = []
 				separate_money = message.content[4:].split(" ")
 				num_sep = int(separate_money[0])
@@ -1077,7 +1077,7 @@ while True:
 
 			################ 사다리 결과 출력 ################ 
 
-			if message.content.startswith('!사다리'):
+			if message.content.startswith('/사다리'):
 				ladder = []
 				ladder = message.content[5:].split(" ")
 				num_cong = int(ladder[0])
@@ -1086,21 +1086,21 @@ while True:
 				
 			################ 보탐봇 메뉴 출력 ################ 
 			
-			if message.content == '!메뉴' :
+			if message.content == '/메뉴' :
 				embed = discord.Embed(
 						title = "----- 메뉴 -----",
-						description= '```!현재시간\n!채널확인\n!채널이동 [채널명]\n!소환\n!불러오기\n!초기화\n!재시작\n!명치\n!미예약\n!분배 [인원] [금액]\n!사다리 [뽑을인원수] [아이디1] [아이디2] ...\n!보스일괄 00:00 또는 !보스일괄 0000\n!ㅂ,ㅃ,q\n\n[보스명]컷\n[보스명]컷 00:00 또는 [보스명]컷 0000\n[보스명]멍\n[보스명]멍 00:00 또는 [보스명]멍 0000\n[보스명]예상 00:00 또는 [보스명]예상 0000\n[보스명]삭제\n보스탐\n!보스탐\n!리젠```',
+						description= '```/현재시간\n/채널확인\n/채널이동 [채널명]\n/소환\n/불러오기\n/초기화\n/재시작\n/명치\n/미예약\n/분배 [인원] [금액]\n/사다리 [뽑을인원수] [아이디1] [아이디2] ...\n/보스일괄 00:00 또는 /보스일괄 0000\n/ㅂ,ㅃ,q\n\n[보스명] 컷\n[보스명] 컷 00:00 또는 [보스명] 컷 0000\n[보스명] 멍\n[보스명] 멍 00:00 또는 [보스명] 멍 0000\n[보스명] 예상 00:00 또는 [보스명] 예상 0000\n[보스명] 삭제\n/보스\n/보스\n/리젠```',
 						color=0xff00ff
 						)
 				embed.add_field(
 						name="----- 추가기능 -----",
-						value= '(보스명)컷/멍/예상  (할말) : 보스시간 입력 후 빈칸 두번!! 메모 가능'
+						value= '(보스명) 컷/멍/예상  (할말) : 보스시간 입력 후 빈칸 두번!! 메모 가능'
 						)
 				await client.get_channel(channel).send(embed=embed, tts=False)
 
 			################ 미예약 보스타임 출력 ################ 
 
-			if message.content == '!미예약':
+			if message.content == '/미예약':
 				temp_bossTime2 = []
 				for i in range(bossNum):
 					if bossTimeString[i] == '99:99:99' :
@@ -1130,7 +1130,7 @@ while True:
 
 			################ 보탐봇 재시작 ################ 
 
-			if message.content == '!재시작':
+			if message.content == '/재시작':
 				for i in range(bossNum):
 					if bossMungFlag[i] == True:
 						bossTimeString[i] = tmp_bossTime[i].strftime('%H:%M:%S')
@@ -1154,7 +1154,7 @@ while True:
 				
 			################ 보탐봇 음성채널 소환 ################ 
 
-			if message.content =='!소환':
+			if message.content =='/소환':
 				if message.author.voice == None:
 					await client.get_channel(channel).send('음성채널에 먼저 들어가주세요.', tts=False)
 				else:
@@ -1198,7 +1198,7 @@ while True:
 			
 			################ 저장된 정보 초기화 ################ 
 						
-			if message.content == '!초기화':
+			if message.content == '/초기화':
 				basicSetting = []
 				bossData = []
 
@@ -1228,9 +1228,9 @@ while True:
 
 			################ 보스타임 일괄 설정 ################
 			
-			if message.content.startswith('!보스일괄'):
+			if message.content.startswith('/보스일괄'):
 				for i in range(bossNum):
-					tmp_msg = '!보스일괄'
+					tmp_msg = '/보스일괄'
 					if len(hello) > len(tmp_msg) + 3 :
 						if hello.find(':') != -1 :
 							chkpos = hello.find(':')
@@ -1281,7 +1281,7 @@ while True:
 
 			################ 보탐봇 기본 설정확인 ################ 
 
-			if message.content == '!설정확인':			
+			if message.content == '/설정확인':			
 				setting_val = '음성채널 : ' + client.get_channel(basicSetting[6]).name + '\n'
 				setting_val += '텍스트채널 : ' + client.get_channel(basicSetting[7]).name +'\n'
 				if basicSetting[8] != "" :
@@ -1298,7 +1298,7 @@ while True:
 
 			################ my_bot.db에 저장된 보스타임 불러오기 ################
 
-			if message.content == '!불러오기' :
+			if message.content == '/불러오기' :
 				await dbLoad()
 
 				if LoadChk == 0:
@@ -1308,7 +1308,7 @@ while True:
 			
 			################ 가장 근접한 보스타임 출력 ################ 
 			
-			if message.content == '!ㅂ' or message.content == '!q' or message.content == '!ㅃ' or message.content == '!Q':
+			if message.content == '/ㅂ' or message.content == '/q' or message.content == '/ㅃ' or message.content == '!Q':
 				
 				checkTime = datetime.datetime.now() + datetime.timedelta(days=1, hours = int(basicSetting[0]))
 				
@@ -1478,7 +1478,7 @@ while True:
 
 			################ 보스타임 출력(고정보스포함) ################ 
 
-			if message.content == '!보스탐':
+			if message.content == '/보스탐':
 
 				datelist = []
 				datelist2 = []
@@ -1576,30 +1576,33 @@ while True:
 
 			################ 현재시간 확인 ################ 
 
-			if message.content == '!현재시간':
+			if message.content == '/현재시간':
 				now3 = datetime.datetime.now() + datetime.timedelta(hours = int(basicSetting[0]))
 				await client.get_channel(channel).send(now3.strftime('%Y-%m-%d') + '   ' + now3.strftime('%H:%M:%S'), tts=False)
 
 			################ 리젠시간 출력 ################
 			
-			if message.content == '!리젠':
+			if message.content == '/리젠':
 				embed = discord.Embed(
 						title='----- 리스폰 보스 -----',
 						description= ' ')
-				embed.add_field(name='1시간', value='기감', inline=False)
-				embed.add_field(name='2시간', value='서드,북드,카파,질풍,광풍,이프,자웜,개미', inline=False)
-				embed.add_field(name='3시간', value='중드,동드,거드,마요,산적,자크,스피,가스트,대흑장로', inline=False)
-				embed.add_field(name='4시간', value='아르,도펠', inline=False)
-				embed.add_field(name='5시간', value='에자', inline=False)
-				embed.add_field(name='6시간', value='감시자 데몬', inline=False)
-				embed.add_field(name='6시간 53분', value='피닉스', inline=False)
-				embed.add_field(name='7시간', value='데스나이트', inline=False)
-				embed.add_field(name='10시간', value='커츠, 리칸트', inline=False)
+				embed.add_field(name='1시간 젠', value='기감', inline=False)
+				embed.add_field(name='2시간 젠', value=' 이프 (멍 있음) , 서드 , 북드 , 카파 , 개미 (멍 있음) , 질풍 (멍 있음) , 광풍 (멍 있음) ,웜 (멍 있음 ) ,', inline=False)
+				embed.add_field(name='3시간 젠', value=' 중드 , 동드 , 거드 (멍 있음) , 마요 (멍 있음) , 산두 , 자크 , 스피 , 가스트로드 (멍 있음) , 대흑장로 , 베리스/대장로 (멍 있음) , 케레니스분신 (멍 있음) ', inline=False)
+				embed.add_field(name='4시간 젠', value=' 아르 , 도펠 (멍 있음) ', inline=False)
+				embed.add_field(name='5시간 젠', value=' 에자 (멍 있음) ', inline=False)
+				embed.add_field(name='6시간 젠', value=' 감시자 데몬 ', inline=False)
+				embed.add_field(name='6시간 53분 젠', value=' 피닉스 (멍 있음) ', inline=False)
+				embed.add_field(name='7시간 젠', value=' 데스나이트 (멍 있음)', inline=False)
+				embed.add_field(name='8시간 젠', value=' 리칸트 (멍있음) ', inline=False)
+                                                embed.add_field(name='10시간 젠', value=' 커츠 (멍 있음) ', inline=False)
+                                                embed.add_field(name='14:00!14:30 , 20:00~20:30', value=' 바포메트 ', inline=False)
+                                                embed.add_field(name='매 홀수 정시각', value=' 네크로맨서 ', inline=False)
 				await client.get_channel(channel).send(embed=embed, tts=False)
 
 			################ 명존쎄 ################ 
 
-			if message.content == '!명치':
+			if message.content == '/명치':
 				#await client.get_channel(channel).send( '<보탐봇 명치 맞고 숨 고르기 중! 잠시만요!>', tts=False)
 				print("명치!")
 				for i in range(bossNum):
