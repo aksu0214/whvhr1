@@ -1582,7 +1582,7 @@ while True:
 
 			################ 리젠시간 출력 ################
 			
-			if message.content == '!리젠':
+			if message.content == '/리젠':
 				embed = discord.Embed(
 						title='----- 리스폰 보스 -----',
 						description= ' ')
