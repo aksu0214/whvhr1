@@ -1498,33 +1498,33 @@ while True:
 			
 			if message.content == command[0]:
 				command_list = ''
-				command_list += command[1] + '\n'     #!설정확인
-				command_list += command[2] + '\n'     #!채널확인
-				command_list += command[3] + ' [채널명]\n'     #!채널이동
-				command_list += command[4] + '\n'     #!소환
-				command_list += command[5] + '\n'     #!불러오기
-				command_list += command[6] + '\n'     #!초기화
-				command_list += command[7] + '\n'     #!명치
-				command_list += command[8] + '\n'     #!재시작
-				command_list += command[9] + '\n'     #!미예약
-				command_list += command[10] + ' [인원] [금액]\n'     #!분배
-				command_list += command[11] + ' [뽑을인원수] [아이디1] [아이디2]...\n'     #!사다리
-				command_list += command[12] + ' [아이디]\n'     #!정산
-				command_list += command[13] + ' 또는 ' + command[14] + ' 0000, 00:00\n'     #!보스일괄
-				command_list += command[14] + '\n'     #!q
-				command_list += command[15] + ' [할말]\n'     #!v
-				command_list += command[16] + '\n'     #!리젠
-				command_list += command[17] + '\n'     #!현재시간
-				command_list += command[22] + '\n'     #!킬초기화
-				command_list += command[23] + '\n'     #!킬횟수 확인
-				command_list += command[23] + ' [아이디]\n'     #!킬
-				command_list += command[24] + ' [아이디]\n'     #!킬삭제
-				command_list += command[18] + '\n'     #!공지
-				command_list += command[18] + ' [공지내용]\n'     #!공지
-				command_list += command[18] + '삭제\n'     #!공지
-				command_list += command[19] + ' [할말]\n\n'     #!상태
+				command_list += command[1] + '\n'     #/설정확인
+				command_list += command[2] + '\n'     #/채널확인
+				command_list += command[3] + ' [채널명]\n'     #/채널이동
+				command_list += command[4] + '\n'     #/소환
+				command_list += command[5] + '\n'     #/불러오기
+				command_list += command[6] + '\n'     #/초기화
+				command_list += command[7] + '\n'     #/명치
+				command_list += command[8] + '\n'     #/재시작
+				command_list += command[9] + '\n'     #/미예약
+				command_list += command[10] + ' [인원] [금액]\n'     #/분배
+				command_list += command[11] + ' [뽑을인원수] [아이디1] [아이디2]...\n'     #/사다리
+				command_list += command[12] + ' [아이디]\n'     #/정산
+				command_list += command[13] + ' 또는 ' + command[14] + ' 0000, 00:00\n'     #/보스일괄
+				command_list += command[14] + '\n'     #/q
+				command_list += command[15] + ' [할말]\n'     #/v
+				command_list += command[16] + '\n'     #/리젠
+				command_list += command[17] + '\n'     #/현재시간
+				command_list += command[22] + '\n'     #/킬초기화
+				command_list += command[23] + '\n'     #/킬횟수 확인
+				command_list += command[23] + ' [아이디]\n'     #/킬
+				command_list += command[24] + ' [아이디]\n'     #/킬삭제
+				command_list += command[18] + '\n'     #/공지
+				command_list += command[18] + ' [공지내용]\n'     #/공지
+				command_list += command[18] + '삭제\n'     #/공지
+				command_list += command[19] + ' [할말]\n\n'     #/상태
 				command_list += command[20] + '\n'     #보스탐
-				command_list += command[21] + '\n'     #!보스탐
+				command_list += command[21] + '\n'     #/보스탐
 				command_list += '[보스명]컷 또는 [보스명]컷 0000, 00:00\n'     
 				command_list += '[보스명]멍 또는 [보스명]멍 0000, 00:00\n'     
 				command_list += '[보스명]예상 또는 [보스명]예상 0000, 00:00\n' 
@@ -1600,7 +1600,7 @@ while True:
 
 			################ 음성파일 생성 후 재생 ################ 			
 				
-			if message.content.startswith(command[15]) or message.content.startswith('!ㅍ') or message.content.startswith('!V'):
+			if message.content.startswith(command[15]) or message.content.startswith('/ㅍ') or message.content.startswith('!V'):
 				tmp_sayMessage = message.content
 				sayMessage = tmp_sayMessage[len(command[15])+1:]
 				await MakeSound(message.author.display_name +'님이.' + sayMessage, './sound/say')
